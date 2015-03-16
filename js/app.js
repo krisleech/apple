@@ -27,12 +27,26 @@ var MakeQuoteButton = React.createClass({
          var quotes = [ 'a', 'b', 'c', 'd' ];
          var result = _.sample(quotes);
 
-         // update UI
-         // TODO: add a new row to Quotes sibling component
-         alert(result);
+         var that = this;
 
-         // enable button
-         this.setState({isEnabled: true});
+         $.ajax({
+           url: 'http://private-b5bb1-quotes3.apiary-mock.com/quote',
+           method: 'get',
+           dataType: 'json'
+         }).done(function(data) {
+            console.log(data);
+         }).error(function(data) {
+             // alert('An error occurred with the API');
+             console.log(data);
+         }).always(function(){
+            // enable button
+            that.setState({isEnabled: true});
+         });
+
+        // update UI
+        // TODO: add a new row to Quotes sibling component
+        alert(result);
+
     },
 
     render: function() {
