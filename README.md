@@ -1,12 +1,17 @@
 # Apple
 
-React playgorund.
+React playground.
 
 ## Running...
 
 Start a HTTP server for the current directory
 
 ```
-ruby -run -ehttpd . -p8000
-open http://localhost:8000
+bin/start
 ```
+
+## TODO
+
+* add router
+* convert to clojurescript
+  * remove jquery and underscore dependencies

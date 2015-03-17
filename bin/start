@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -x
+
+(sleep 1 && open http://localhost:8000) 2> /dev/null &
+ruby -run -ehttpd . -p8000
